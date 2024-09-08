@@ -33,8 +33,10 @@ builder.Services
         IConfigurationSection googleSection = builder.Configuration
             .GetSection("Authentication:Google");
 
-        options.ClientId = googleSection.GetValue<string>("ClientId");
-        options.ClientSecret = googleSection.GetValue<string>("ClientSecret");
+        options.ClientId = googleSection
+            .GetValue<string>("ClientId") ?? string.Empty;
+        options.ClientSecret = googleSection
+            .GetValue<string>("ClientSecret") ?? string.Empty;
     });
 
 builder.Services
