@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-mx">
+<html>
 
 <head>
     <meta charset="utf-8" />
@@ -32,6 +32,22 @@
         <a href="" class="reload">Recargar</a>
         <a class="dismiss">🗙</a>
     </div>
+
+    <script>
+        const NAME = 'ActiveLanguage';
+
+        function getLanguage() {
+            let result = window.localStorage[NAME];
+
+            return result ? result : navigator.language || navigator.userLanguage || 'en';
+
+        }
+
+        function setLanguage(value) {
+            window.localStorage[NAME] = value
+
+        }
+    </script>
 
     <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>

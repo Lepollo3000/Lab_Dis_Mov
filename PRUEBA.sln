@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRUEBA.Server", "PRUEBA\Server\PRUEBA.Server.csproj", "{F7A68235-C0BE-424B-BEB5-E8ECFE790A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRUEBA.Server", "PRUEBA\Server\PRUEBA.Server.csproj", "{F7A68235-C0BE-424B-BEB5-E8ECFE790A9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRUEBA.Client", "PRUEBA\Client\PRUEBA.Client.csproj", "{A95E27CE-E59B-4D8B-853C-32609BCA86E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRUEBA.Client", "PRUEBA\Client\PRUEBA.Client.csproj", "{A95E27CE-E59B-4D8B-853C-32609BCA86E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRUEBA.Shared", "PRUEBA\Shared\PRUEBA.Shared.csproj", "{4E411E80-BDAD-4506-B29D-547FF9FA9F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRUEBA.Shared", "PRUEBA\Shared\PRUEBA.Shared.csproj", "{4E411E80-BDAD-4506-B29D-547FF9FA9F03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

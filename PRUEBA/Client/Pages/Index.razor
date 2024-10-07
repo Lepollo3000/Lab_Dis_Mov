@@ -1,7 +1,11 @@
 ﻿@page "/"
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<Resource> localizer
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<SelectUICulture></SelectUICulture>
 
-Welcome to your new app.
+<h1>@localizer["Bienvenido"]!</h1>
+
+@* Welcome to your new app. *@

@@ -1,0 +1,52 @@
+﻿@using Blazored.LocalStorage
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject NavigationManager NavManager
+@inject IStringLocalizer<Resource> localizer
+@inject ILocalStorageService _localstorage
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td>
+                @*Placeholder for the Constant String for specific Culture read from Resources files*@
+
+                @localizer["SeleccionIdioma"]
+            </td>
+            <td>
+                <select class="form-control" @bind="UICulture" style="width:400px; margin-left:10px;">
+                    @foreach (var culture in uicultutes)
+                    {
+                        <option value="@culture">@culture.DisplayName</option>
+                    }
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+@code {
+    CultureInfo[] uicultutes = new[]
+    {
+        // default cultures supported by the applciation
+        new CultureInfo("es"),
+        new CultureInfo("en"),
+        new CultureInfo("fr")
+    };
+
+    CultureInfo UICulture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                // Set the culture in LocalStorage
+                _localstorage.SetItemAsync("currentcuture", value.Name);
+
+                // Load the Current URL
+                NavManager.NavigateTo(NavManager.Uri, forceLoad: true);
+            }
+        }
+    }
+}
