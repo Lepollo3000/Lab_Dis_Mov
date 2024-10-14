@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PRUEBA.Server.Data;
 using PRUEBA.Server.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,11 +21,18 @@ builder.Services
     {
         options.SignIn.RequireConfirmedAccount = true;
     })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services
     .AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>(options =>
+    {
+        options.IdentityResources["openid"].UserClaims.Add("role");
+        options.ApiResources.Single().UserClaims.Add("role");
+    });
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("role");
 
 builder.Services
     .AddAuthentication()
