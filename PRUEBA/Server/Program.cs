@@ -55,6 +55,8 @@ builder.Services
 builder.Services
     .AddRazorPages();
 
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -78,6 +80,8 @@ app.UseRouting();
 app.UseIdentityServer();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapHub<ChatHub>("/chathub");
 
 app.MapRazorPages();
 app.MapControllers();

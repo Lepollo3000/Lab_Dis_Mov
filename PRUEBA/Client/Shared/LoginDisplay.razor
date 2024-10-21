@@ -6,12 +6,12 @@
 
 <AuthorizeView>
     <Authorized>
-        <a href="authentication/profile">Hello, @context.User.Identity?.Name!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
+        <a href="authentication/profile">Hola, @context.User.Identity?.Name!</a>
+        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Cerrar sesión</button>
     </Authorized>
     <NotAuthorized>
-        <a href="authentication/register">Register</a>
-        <a href="authentication/login">Log in</a>
+        <a href="authentication/register">Registrarse</a>
+        <a href="authentication/login">Iniciar sesión</a>
     </NotAuthorized>
 </AuthorizeView>
 
@@ -19,6 +19,6 @@
     private async Task BeginSignOut(MouseEventArgs args)
     {
         await SignOutManager.SetSignOutState();
-        Navigation.NavigateTo("authentication/logout");
+        Navigation.NavigateToLogout("authentication/logout", "");
     }
 }
